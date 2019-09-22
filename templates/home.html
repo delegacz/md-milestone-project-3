@@ -1,0 +1,11 @@
+{% extends 'base.html'%} {% block content %}
+<h3>TEST</h3>
+{% for playlist in playlists %}   
+<div>
+    <p>mhm</p>
+    <strong>{{playlist.name}}</strong>
+    <strong>{{playlist.spotify_link}}</strong>
+    <p>ehm</p>
+</div>
+{% endfor %}
+{% endblock %}
