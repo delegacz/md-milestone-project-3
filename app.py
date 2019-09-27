@@ -59,6 +59,11 @@ def update_playlist(playlist_id):
     )
     return redirect(url_for('display'))
 
+@app.route('/delete_playlist/<playlist_id>')
+def delete_playlist(playlist_id):
+    mongo.db.playlists.remove({'_id': ObjectId(playlist_id)})
+    return redirect(url_for('display'))
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=(os.environ.get('PORT')),
