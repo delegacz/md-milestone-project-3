@@ -2,23 +2,25 @@
 {% extends 'base.html'%} {% block content %}
 
     
-
 <div class="row page-title-head">
 <h1>Featured Playlists</h1>
 </div>
-{% for playlist in playlists %}   
+{% for p in playlists %}   
 <div class="col-3 row playlist-display-block">
-    <div class="col-12">
+    <div class="col-6">
         <label>Name:</label>
-        <h3>{{playlist.name}}</h3>
+        <h3>{{p.name}}</h3>
+    </div>
+    <div class="col-6">
+        <a href="{{url_for('edit_playlist',playlist_id=p._id)}}">EDIT</a>
     </div>
     <div class="col-12">
         <label>Category:</label>
-        <h4>{{playlist.category}}</h4>
+        <h4>{{p.category}}</h4>
     </div>
     <div class="col-12">
     <label>Spotify Link:</label>
-    <strong><a href="{{playlist.spotify_link}}">PLAY via Spotify</a></strong>
+    <strong><a href="{{p.spotify_link}}">PLAY via Spotify</a></strong>
 </div>
 </div>
 {% endfor %}
