@@ -19,10 +19,23 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/home')
 def display():
     return render_template("home.html", 
-                           playlists=mongo.db.playslist.find())
+                           playlists=mongo.db.playlists.find())
+
+
+@app.route('/add')
+def add():
+    return render_template('add.html',
+                            categories=mongo.db.categories.find())
+
+@app.route('/insert', methods=['POST','GET'])
+def inert_playlist():
+    playlists=mongo.db.playlists
+    playlists.insert_one(request.form.to_dict())
+    return redirect(url_for('display'))
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

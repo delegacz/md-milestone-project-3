@@ -1,11 +1,26 @@
+<div class="container">
 {% extends 'base.html'%} {% block content %}
-<h3>TEST</h3>
+
+    
+
+<div class="row page-title-head">
+<h1>Featured Playlists</h1>
+</div>
 {% for playlist in playlists %}   
-<div>
-    <p>mhm</p>
-    <strong>{{playlist.name}}</strong>
-    <strong>{{playlist.spotify_link}}</strong>
-    <p>ehm</p>
+<div class="col-3 row playlist-display-block">
+    <div class="col-12">
+        <label>Name:</label>
+        <h3>{{playlist.name}}</h3>
+    </div>
+    <div class="col-12">
+        <label>Category:</label>
+        <h4>{{playlist.category}}</h4>
+    </div>
+    <div class="col-12">
+    <label>Spotify Link:</label>
+    <strong><a href="{{playlist.spotify_link}}">PLAY via Spotify</a></strong>
+</div>
 </div>
 {% endfor %}
 {% endblock %}
+</div>
