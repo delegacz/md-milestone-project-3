@@ -10,7 +10,7 @@ DBNAME = os.getenv("DBNAME")
 DATABASEURI = os.getenv("URI")
 
 app = Flask(__name__)
-
+app.config.from_object('config')
 #Connecting to database
 app.config["MONGO_DBNANE"] = DBNAME
 app.config["MONGO_URI"] = DATABASEURI
