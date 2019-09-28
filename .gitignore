@@ -1,5 +1,5 @@
 **/.venv
 **/.vscode
 .env
-config.py
 __pycache__
+**/instance
