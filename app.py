@@ -1,6 +1,10 @@
 import os
+import requests
+import json
 from dotenv import load_dotenv
 from datetime import datetime
+##loading credenditls from seperate file
+from credentials import auth_data, auth_string
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -8,6 +12,13 @@ from bson.objectid import ObjectId
 load_dotenv()
 DBNAME = os.getenv("DBNAME")
 DATABASEURI = os.getenv("URI")
+#calling api for spotify token
+token_response = requests.post('https://accounts.spotify.com/api/token',
+                    data = auth_data,
+                    headers = auth_string,)  
+token_response_data = token_response.json()
+##token
+the_token = token_response_data['access_token']
 
 app = Flask(__name__)
 
@@ -21,9 +32,13 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/home')
 def display():
-    return render_template("home.html", 
-                           playlists=mongo.db.playlists.find())
-
+    def get_playlist_image(id):
+        image_response = requests.get('https://api.spotify.com/v1/playlists/' + id + '/images',
+                           headers={'Authorization':'Bearer '+ the_token})
+        image_response_data = image_response.json()
+        image_url = image_response_data[0]['url']
+        return image_url
+    return render_template("home.html", playlists=mongo.db.playlists.find(), get_playlist_image=get_playlist_image)
 
 @app.route('/add')
 def add():

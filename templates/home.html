@@ -1,29 +1,41 @@
 <div class="container">
-{% extends 'base.html'%} {% block content %}
-
-    
-<div class="row page-title-head">
-<h1>Featured Playlists</h1>
-</div>
-{% for p in playlists %}   
-<div class="col-3 row playlist-display-block">
-    <div class="col-6">
-        <label>Name:</label>
-        <h3>{{p.name}}</h3>
-    </div>
-    <div class="col-6">
-        <a href="{{url_for('edit_playlist',playlist_id=p._id)}}">EDIT</a>
-    </div>
-    <div class="col-12">
-        <label>Category:</label>
-        <h4>{{p.category}}</h4>
-    </div>
-    <div class="col-12">
-    <label>Spotify Link:</label>
-    <strong><a href="{{p.spotify_link}}">PLAY via Spotify</a></strong>
-    <div id="images"></div>
-</div>
-</div>
-{% endfor %}
-{% endblock %}
+    {% extends 'base.html'%}
+    {% block content %}
+        <div class="row page-title-head">
+            <h1>Featured Playlists</h1>
+        </div>
+        {% for p in playlists %}
+            <script>
+                var IdForAPI = '{{p.spotify_id}}';
+            </script>
+            <div class="row col-12 playlist-display-block">
+                <div class="col-5">
+                    <div class="row">
+                    <div class="col-12 name-area">
+                        <label>Name:</label>
+                        <h3>{{p.name}}</h3>
+                    </div>
+                </div>
+                   <div class="row">
+                    <div class="col-12 category-area">
+                        <label>Category:</label>
+                        <h4>{{p.category}}</h4>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <a class="spotify-play-btn" href="{{p.spotify_link}}"><span>PLAY via Spotify</span></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-7">            
+                    <div id="api">
+                        <img src="{{get_playlist_image(p.spotify_id)}}"/>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endblock %}
 </div>
