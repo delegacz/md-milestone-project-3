@@ -2,18 +2,17 @@
 {% block content %}
     <div class="container">
         <div class="row page-title-head">
-            <h1>Submit your Playlists</h1>
+            <h1>Edit Playlist</h1>
         </div>
-        <form action="{{url_for('update_playlist', playlist_id=playlist._id) }}" method="POST" class="col s12">
+        <form
+            action="{{url_for('update_playlist', playlist_id=playlist._id) }}"
+            method="POST"
+            class="col-12 playlist-form">
             <div class="row">
                 <div class="input-field col-6">
                     <label>Name of the playlist:
                     </label>
-                    <input
-                        id="playlist-name"
-                        name="name"
-                        type="text"
-                        value="{{playlist.name}}">
+                    <input id="playlist-name" name="name" type="text" value="{{playlist.name}}">
                 </div>
                 <div class="input-field col-6">
                     <label>Select Category</label>
@@ -27,32 +26,57 @@
             </div>
             <div class="row">
                 <div class="input-field col-6">
-                    <div class="helper">
-                        <h5>What'is Spotify URL?</h5>
-                        <p>Lorem ipsum</p>
+                    <div class="helper-left">
+                        <div class="helper-title">
+                            <h5>What'is Spotify URL?</h5>
+                        </div>
+                        <div class="helper-content">
+                            <p>Lorem ipsum</p>
+                        </div>
                     </div>
                     <label>Spotify URL:</label>
-                    <input id="spotify-link" name="spotify_link" type="text" value="{{playlist.spotify_link}}">
+                    <input
+                        id="spotify-link"
+                        name="spotify_link"
+                        type="text"
+                        value="{{playlist.spotify_link}}">
                 </div>
-                    <div class="input-field col-6">
-                            <div class="helper">
-                                    <h5>What'is Spotify ID?</h5>
-                                    <p>Lorem ipsum</p>
-                                </div>
+                <div class="input-field col-6">
+                    <div class="helper-right">
+                        <div class="helper-title">
+                            <h5>What'is Spotify ID</h5>
+                        </div>
+                        <div class="helper-content">
+                            <p>Lorem ipsum</p>
+                        </div>
                         <label>Spotify ID:</label>
-                        <input id="spotify-id" name="spotify_id" type="text" value="{{playlist.spotify_id}}">
+                        <input
+                            id="spotify-id"
+                            name="spotify_id"
+                            type="text"
+                            value="{{playlist.spotify_id}}">
                     </div>
                 </div>
-                <div class="row">
-                        <label>Description</label>
-                        <div class="input-field col-12">
-                                <textarea id="description" name="description" type="text" placeholder="{{playlist.description}}"></textarea>
-                        </div>
+            </div>
+            <div class="row">
+
+                <div class="input-field col-12">
+                    <label>Description</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        type="text"
+                        placeholder="{{playlist.description}}"></textarea>
                 </div>
-                <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-12 form-submits">
                     <input type="submit" value="submit">
-                    <a href="{{url_for('delete_playlist',playlist_id=playlist._id)}}">delete playlist</a>
+                    <a
+                        href="{{url_for('delete_playlist',playlist_id=playlist._id)}}"
+                        class="delete-btn">delete playlist</a>
                 </div>
+            </div>
         </form>
     </div>
 

@@ -35,9 +35,15 @@ def display():
     def get_playlist_image(id):
         image_response = requests.get('https://api.spotify.com/v1/playlists/' + id + '/images',
                            headers={'Authorization':'Bearer '+ the_token})
-        image_response_data = image_response.json()
-        image_url = image_response_data[0]['url']
-        return image_url
+        if(image_response.status_code == 200):
+            image_response_data = image_response.json()
+            image_url = image_response_data[0]['url']
+            return image_url
+        else:
+            image_url='./static/img/missing.jpg'
+            return image_url
+
+        
     return render_template("home.html", playlists=mongo.db.playlists.find(), get_playlist_image=get_playlist_image)
 
 @app.route('/add')
