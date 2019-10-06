@@ -88,6 +88,13 @@ def delete_playlist(playlist_id):
 @app.route('/playlist/<playlist_id>')
 def display_tracks(playlist_id):
     the_playlist = mongo.db.playlists.find_one({'_id': ObjectId(playlist_id)})
+    def status_check(id):
+        status_response = requests.get('https://api.spotify.com/v1/playlists/'+ id +'/', headers={'Authorization':'Bearer '+ the_token})
+        if(status_response.status_code == 200):
+            return True
+        else:
+            return False
+
     def get_playlist_tracklist(id):
         tracklist_response = requests.get('https://api.spotify.com/v1/playlists/'+ id +'/tracks', headers={'Authorization':'Bearer '+ the_token})
         track_list = []
@@ -101,8 +108,8 @@ def display_tracks(playlist_id):
                 else:
                     return track_list
         else:
-            track_list='UNAVAIABLE'
-    return render_template('playlist_details.html', playlist=the_playlist, get_playlist_tracklist=get_playlist_tracklist)
+            track_list = False
+    return render_template('playlist_details.html', playlist=the_playlist, get_playlist_tracklist=get_playlist_tracklist, status_check=status_check)
 
 
 if __name__ == '__main__':
