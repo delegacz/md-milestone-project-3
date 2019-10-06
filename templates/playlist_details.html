@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+        <div class="row page-title-head">
+            <h1>{{playlist.name}}</h1>
+        </div>
+        <table class="table table-striped col-12">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Artist</th>
+                <th scope="col">Track</th>
+                <th scope="col">Cover</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index  in range(get_playlist_tracklist(playlist.spotify_id) | length)  %}
+            <tr>
+                <th scope="row">{{index}}</th>
+                <td>{{get_playlist_tracklist(playlist.spotify_id)[index]['album']['artists'][0]['name']}}</td>
+                <td>{{get_playlist_tracklist(playlist.spotify_id)[index]['album']['name']}}</td>
+                <td><img src="{{get_playlist_tracklist(playlist.spotify_id)[index]['album']['images'][0]['url']}}" width="40px" height="40px"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> 
+    </div>
+
+{% endblock %}

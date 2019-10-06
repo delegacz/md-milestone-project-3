@@ -16,7 +16,7 @@
                 </div>
                 <div class="input-field col-6">
                     <label>Select Category</label>
-                    <select id="category" name="category">
+                    <select id="category" name="category_name">
                         <option value="" disabled="disabled" selected="selected">Playlist Category</option>
                         {% for category in categories %}
                             <option value="{{category.category_name}}">{{category.category_name}}</option>

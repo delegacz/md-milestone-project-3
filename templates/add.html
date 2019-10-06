@@ -4,16 +4,12 @@
         <div class="row page-title-head">
             <h1>Submit your Playlists</h1>
         </div>
-        <form action="{{url_for('insert_playlist')}}" method="POST" class="col s12">
+        <form action="{{url_for('insert_playlist')}}" method="POST" class="col s12 playlist-form">
             <div class="row">
                 <div class="input-field col-6">
                     <label>Name of the playlist:
                     </label>
-                    <input
-                        id="playlist-name"
-                        name="name"
-                        type="text"
-                        placeholder="Playlist Name">
+                    <input id="playlist-name" name="name" type="text" placeholder="Playlist Name">
                 </div>
                 <div class="input-field col-6">
                     <label>Select Category</label>
@@ -27,31 +23,50 @@
             </div>
             <div class="row">
                 <div class="input-field col-6">
-                    <div class="helper">
-                        <h5>What'is Spotify URL?</h5>
-                        <p>Lorem ipsum</p>
-                    </div>
-                    <label>Spotify URL:</label>
-                    <input id="spotify-link" name="spotify_link" type="text" placeholder="Spotify Link">
-                </div>
-                    <div class="input-field col-6">
-                            <div class="helper">
-                                    <h5>What'is Spotify ID?</h5>
+                        <div class="helper-left">
+                                <div class="helper-title">
+                                    <h5>What'is Spotify URL?</h5>
+                                </div>
+                                <div class="helper-content">
                                     <p>Lorem ipsum</p>
                                 </div>
-                        <label>Spotify ID:</label>
-                        <input id="spotify-id" name="spotify_id" type="text" placeholder="Spotify ID">
-                    </div>
+                            </div>
+                    <label>Spotify URL:</label>
+                    <input
+                        id="spotify-link"
+                        name="spotify_link"
+                        type="text"
+                        placeholder="Spotify Link">
                 </div>
-                <div class="row">
+                <div class="input-field col-6">
+                        <div class="helper-right">
+                                <div class="helper-title">
+                                    <h5>What'is Spotify ID</h5>
+                                </div>
+                                <div class="helper-content">
+                                    <p>Lorem ipsum</p>
+                                </div>
+                                <label>Spotify ID:</label>
+                    <input id="spotify-id" name="spotify_id" type="text" placeholder="Spotify ID">
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="input-field col-12">
                         <label>Description</label>
-                        <div class="input-field col-12">
-                                <textarea id="description" name="description" type="text" placeholder="Tell us all about this playlist!"></textarea>
-                        </div>
+                    <textarea
+                        id="description"
+                        name="description"
+                        type="text"
+                        placeholder="Tell us all about this playlist!"></textarea>
                 </div>
-                <div class="row">
-                    <input type="submit" value="submit">
-                </div>
+            </div>
+            <div class="row">
+                    <div class="col-12 form-submits">
+                <input type="submit" value="submit">
+            </div>
+            </div>
         </form>
     </div>
 

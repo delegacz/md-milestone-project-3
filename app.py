@@ -67,7 +67,7 @@ def edit_playlist(playlist_id):
 
 @app.route('/update_playlist/<playlist_id>',methods=['POST'])
 def update_playlist(playlist_id):
-    playlist = mongo.db.playlists
+    playlist = mongo.db.playlists 
     playlist.update(
         {'_id': ObjectId(playlist_id)},
         {
@@ -84,6 +84,26 @@ def update_playlist(playlist_id):
 def delete_playlist(playlist_id):
     mongo.db.playlists.remove({'_id': ObjectId(playlist_id)})
     return redirect(url_for('display'))
+
+@app.route('/playlist/<playlist_id>')
+def display_tracks(playlist_id):
+    the_playlist = mongo.db.playlists.find_one({'_id': ObjectId(playlist_id)})
+    def get_playlist_tracklist(id):
+        tracklist_response = requests.get('https://api.spotify.com/v1/playlists/'+ id +'/tracks', headers={'Authorization':'Bearer '+ the_token})
+        track_list = []
+        count = 0
+        if(tracklist_response.status_code==200):
+                tracklist_response_data = tracklist_response.json()
+                maxium_of_values = len(tracklist_response_data['items'])
+                while count < maxium_of_values:
+                    track_list.append(tracklist_response_data['items'][count]['track'])
+                    count+=1
+                else:
+                    return track_list
+        else:
+            track_list='UNAVAIABLE'
+    return render_template('playlist_details.html', playlist=the_playlist, get_playlist_tracklist=get_playlist_tracklist)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

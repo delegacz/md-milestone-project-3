@@ -89,7 +89,7 @@ a.edit-btn:hover {
 }
 
 #api {
-    background-color: grey;
+    text-align: right;
     width: 100%;
     height:100%;
 }
