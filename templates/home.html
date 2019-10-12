@@ -2,7 +2,14 @@
     {% extends 'base.html'%}
     {% block content %}
         <div class="row page-title-head">
-            <h1>Featured Playlists</h1>
+            <div class="row col-12">
+                <h1>Featured Playlists</h1>
+            </div>
+            <div class="row col-12 category-filters">
+            {% for cat in categories %}
+                <a href="{{url_for('display_category',category_id=cat._id)}}" class="category-filter-btn">{{cat.category_name}}</a>
+            {% endfor %}
+        </div>
         </div>
         {% for p in playlists %}
             <div class="row col-12 playlist-display-block">

@@ -87,7 +87,21 @@ a.spotify-play-btn:hover {
 a.edit-btn:hover {
     background: rgb(0, 91, 177);
 }
-
+.category-filter-btn {
+    padding: 10px;
+    background-color: #000;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #fff;
+}
+a.category-filter-btn:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #333333;
+}
+.category-filters {
+    margin-bottom: 15px;
+}
 #api {
     text-align: right;
     width: 100%;
