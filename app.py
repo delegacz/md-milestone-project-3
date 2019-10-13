@@ -42,13 +42,17 @@ def display():
         else:
             image_url='./static/img/missing.jpg'
             return image_url
-
-    all_categories = mongo.db.categories.find()    
-    return render_template("home.html", playlists=mongo.db.playlists.find(), get_playlist_image=get_playlist_image, categories=all_categories)
+    playlists=mongo.db.playlists.find()       
+    is_empty = playlists.count()
+    all_categories = mongo.db.categories.find()   
+    return render_template("home.html", is_empty=is_empty, playlists=playlists, get_playlist_image=get_playlist_image, categories=all_categories)
 
 @app.route('/category/<category_id>')
-def display_category():
+def display_category(category_id):
     the_categories = mongo.db.categories.find_one({'_id': ObjectId(category_id)})
+    filter_query = { "category": the_categories['category_name']}
+    filtered_playlists = mongo.db.playlists.find(filter_query)
+    is_empty = filtered_playlists.count()
     def get_playlist_image(id):
         image_response = requests.get('https://api.spotify.com/v1/playlists/' + id + '/images',
                            headers={'Authorization':'Bearer '+ the_token})
@@ -59,7 +63,9 @@ def display_category():
         else:
             image_url='./static/img/missing.jpg'
             return image_url
-    return render_template("home.html", playlists=mongo.db.playlists.find(), get_playlist_image=get_playlist_image, category=the_categories)
+    all_categories = mongo.db.categories.find()
+
+    return render_template("category.html", is_empty=is_empty, playlists=filtered_playlists, get_playlist_image=get_playlist_image, category=the_categories, categories=all_categories)
 
 @app.route('/add')
 def add():

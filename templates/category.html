@@ -1,17 +1,16 @@
 <div class="container">
-    {% extends 'base.html'%}
-    {% block content %}
-        <div class="row page-title-head">
-            <div class="row col-12">
-                <h1>Featured Playlists</h1>
-            </div>
-            <div class="row col-12 category-filters">
-            {% for cat in categories %}
-                <a href="{{url_for('display_category',category_id=cat._id)}}" class="category-filter-btn">{{cat.category_name}}</a>
-            {% endfor %}
+{% extends 'base.html' %}
+{% block content %}
+<div class="row page-title-head">
+        <div class="row col-12">
+            <h1>Category: {{category.category_name}}</h1>
         </div>
-        </div>
-        {% if is_empty == 0 %}
+        <div class="row col-12 category-filters">
+        {% for cat in categories %}
+            <a href="{{url_for('display_category',category_id=cat._id)}}" class="category-filter-btn">{{cat.category_name}}</a>
+        {% endfor %}
+    </div>
+    {% if is_empty == 0 %}
     <div class="row">
         <div class="col-12">
         <h1>Unfortunetaly this category is empty :(</h1>
@@ -20,8 +19,9 @@
     </div>
     </div>
         {% else %}
-        {% for p in playlists %}  
-            <div class="row col-12 playlist-display-block">
+
+    {% for p in playlists %}
+        <div class="row col-12 playlist-display-block">
                 <div class="col-5">
                     <div class="row">
                     <div class="col-12 name-area">
@@ -53,5 +53,6 @@
                 </div>
         {% endfor %}
         {% endif %}
-    {% endblock %}
+    </div>
+{% endblock %}
 </div>
