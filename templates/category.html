@@ -1,58 +1,80 @@
-<div class="container">
 {% extends 'base.html' %}
 {% block content %}
-<div class="row page-title-head">
-        <div class="row col-12">
-            <h1>Category: {{category.category_name}}</h1>
+    <div class="container">
+        <div class="col-12 page-title-head">
+            <div class="row">
+                <div class="col-12">
+                <h1>Category:
+                    {{category.category_name}}</h1>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-12 category-filters">
+                {% for cat in categories %}
+                    <a
+                        href="{{url_for('display_category',category_id=cat._id)}}"
+                        class="category-filter-btn">{{cat.category_name}}</a>
+                {% endfor %}
+            </div>
         </div>
-        <div class="row col-12 category-filters">
-        {% for cat in categories %}
-            <a href="{{url_for('display_category',category_id=cat._id)}}" class="category-filter-btn">{{cat.category_name}}</a>
-        {% endfor %}
-    </div>
-    {% if is_empty == 0 %}
-    <div class="row">
-        <div class="col-12">
-        <h1>Unfortunetaly this category is empty :(</h1>
-        <p>You can be first to add a playlist in '{{category.category_name}}' category<br>
-        by clicking here: <a href="{{url_for('add')}}">here</a></p>
-    </div>
-    </div>
-        {% else %}
-
-    {% for p in playlists %}
-        <div class="row col-12 playlist-display-block">
-                <div class="col-5">
-                    <div class="row">
-                    <div class="col-12 name-area">
-                        <label>Name:</label>
-                        <h3>{{p.name}}</h3>
-                    </div>
-                </div>
-                   <div class="row">
-                    <div class="col-12 category-area">
-                        <label>Category:</label>
-                        <h4>{{p.category}}</h4>
-                    </div>
-                </div>
-                    <div class="row">
+        </div>
+            {% if is_empty == 0 %}
+                <div class="row">
                     <div class="col-12">
-                        <div>
-                            <a class="spotify-play-btn" href="{{p.spotify_link}}"><span>PLAY via Spotify</span></a>
-                            <a class="edit-btn" href="{{url_for('edit_playlist',playlist_id=p._id)}}" target="_blank"><span>EDIT</span></a>
-                            <a class="edit-btn" href="{{url_for('display_tracks',playlist_id=p._id)}}"><span>VIEW</span></a>
+                        <h1>Unfortunetaly this category is empty :(</h1>
+                        <p>You can be first to add a playlist in '{{category.category_name}}' category<br>
+                            by clicking here:
+                            <a href="{{url_for('add')}}">here</a>
+                        </p>
+                    </div>
+                </div>
+            {% else %}
+
+                {% for p in playlists %}
+                    <div class="col-12">
+                        <div class="row playlist-display-block">
+                            <div class="col-sm-12 d-sm-block d-md-none">
+                                <div id="api-mobile">
+                                    <img src="{{get_playlist_image(p.spotify_id)}}" width="200px" height="200px"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-5 playlist-block-content">
+                                <div class="row">
+                                    <div class="col-12 name-area">
+                                        <label>Name:</label>
+                                        <h3>{{p.name}}</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 category-area">
+                                        <label>Category:</label>
+                                        <h4>{{p.category}}</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div>
+                                            <a class="spotify-play-btn" href="{{p.spotify_link}}">
+                                                <span>PLAY via Spotify</span></a>
+                                            <a
+                                                class="edit-btn"
+                                                href="{{url_for('edit_playlist',playlist_id=p._id)}}"
+                                                >
+                                                <span>EDIT</span></a>
+                                            <a class="edit-btn" href="{{url_for('display_tracks',playlist_id=p._id)}}">
+                                                <span>VIEW</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-none d-md-block col-sm-12 col-md-7">
+                                <div id="api">
+                                    <img src="{{get_playlist_image(p.spotify_id)}}" width="200px" height="200px"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                </div>
-                <div class="col-7">            
-                    <div id="api">
-                        <img src="{{get_playlist_image(p.spotify_id)}}" width="200px" height="200px"/>
-                    </div>
-                </div>
-                </div>
-        {% endfor %}
-        {% endif %}
-    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
 {% endblock %}
-</div>

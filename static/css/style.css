@@ -1,6 +1,9 @@
 body{
     background: rgb(224, 228, 231);
 }
+h1 {
+    font-size: 2.2rem;
+}
 .page-title-head {
     margin-top: 100px;
 }
@@ -72,6 +75,7 @@ a.edit-btn{
     background: rgb(0, 132, 255);
     border-radius: 5px;
     text-decoration: none;
+    display: inline-block;
   
 }
 a.spotify-play-btn {
@@ -80,6 +84,8 @@ a.spotify-play-btn {
     background: #1db954;
     border-radius: 5px;
     text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
 }
 a.spotify-play-btn:hover {
     background: #139440;
@@ -93,6 +99,8 @@ a.edit-btn:hover {
     border-radius: 5px;
     margin-right: 10px;
     color: #fff;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 a.category-filter-btn:hover {
     text-decoration: none;
@@ -106,4 +114,21 @@ a.category-filter-btn:hover {
     text-align: right;
     width: 100%;
     height:100%;
+}
+.playlist-block-content {
+    margin-top: 20px;
+}
+.helper-left, .helper-right {
+    margin-bottom: 10px;
+}
+/* respo */
+@media screen and (min-width: 300px) {
+    .playlist-display-block {
+        padding: 40px 15px;
+    }
+}
+@media screen and (min-width: 475px) {
+    .playlist-display-block {
+        padding: 50px 40px;
+    }
 }

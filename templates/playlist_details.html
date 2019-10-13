@@ -2,8 +2,11 @@
 {% block content %}
     <div class="container">
         <div class="row page-title-head">
+            <div class="col-12">
             <h1>{{playlist.name}}</h1>
         </div>
+        </div>
+        <div class="table-responsive">
         <table class="table table-striped col-12">
             <thead>
                 <tr>
@@ -31,6 +34,7 @@
                 {% endif %}
             </tbody>
         </table>
+    </div>
     </div>
 
 {% endblock %}
