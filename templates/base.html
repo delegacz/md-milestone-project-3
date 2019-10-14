@@ -11,10 +11,11 @@
         crossorigin="anonymous"></script> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+    <title>SpotiShare</title>
+  </head>
 <header class="container">
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Fixed navbar</a>
+        <a class="navbar-brand" href="#">SpotiShare</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,9 +27,6 @@
             <li class="nav-item">
                     <a class="nav-link" href="{{url_for('add')}}">Add your Playlist</a>
                   </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Entires</a>
-            </li>
           </ul>
         </div>
 </nav></header>
