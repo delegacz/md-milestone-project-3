@@ -3,6 +3,5 @@
 .env
 __pycache__
 **/instance
-credentials.py
 a.json
 adi.py

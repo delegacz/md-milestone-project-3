@@ -1,15 +1,19 @@
 import os
 import requests
 import json
+import ast
 from dotenv import load_dotenv
 from datetime import datetime
-##loading credenditls from seperate file
-from credentials import auth_data, auth_string
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 #enviorement virables loading
 load_dotenv()
+auth_string= os.getenv("auth_string")
+auth_data = os.getenv("auth_data")
+auth_data= ast.literal_eval(auth_data)
+auth_string=ast.literal_eval(auth_string)
+
 DBNAME = os.getenv("DBNAME")
 DATABASEURI = os.getenv("URI")
 #calling api for spotify token
