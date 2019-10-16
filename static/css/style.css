@@ -4,6 +4,9 @@ body{
 h1 {
     font-size: 2.2rem;
 }
+p {
+    overflow-wrap: break-word;
+}
 .page-title-head {
     margin-top: 100px;
 }
