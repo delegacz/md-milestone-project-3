@@ -1,44 +1,47 @@
 # SpotiShare
 
-SpotiShare is a website for users to share thier (Spotify)playlists with other users in open(categorized) channel for everyone to enjoy and discover new music and brothen the taste in music.
+SpotiShare is a website for users to share thier playlists (Spotify) with other users in open and categorised channel for everyone to enjoy and discover new music and broaden the taste in music.
  
 ## UX
  
 TO BE ADDED
 
 ## Features
-
  
 ### Existing Features
-- Ability to add a playlist - allows users to add, by fill out 'Add a playlist' form and submiting it to database
-- Ability to edit and update a playlist - allows users to edit a playlist, by clicking EDIT and  fill out form and submiting it to database
+- Ability to add a playlist - allows users to add, by filling out 'Add a playlist' form and submiting it to database
+- Ability to edit and update a playlist - allows users to edit a playlist, by clicking EDIT and filling out form and submiting it to the database
 - Ability to delete a playlist - allows users to delete by clicking delete button on edit playlist page
 - Ability play a playlist - allows user to listen to the chosen playlist by clicking 'Play on Spotify' button
+- View playlist - allows user to display tracklist from the playlist by clicking 'View playlist button'up to 100 tracks*
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+* IMPORTANT NOTE - "View Playlists" feature is currently slow, most likely due to how the list of tracks is rendered. Large playlists may take upto 40-60sec.
 
 ### Features Left to Implement
 - User AUTH
 - Ability to Login with Users Spotify Account and follow playlists with that account
+- Like system
+- Featured section judged by number of likes and maunal picks
+- Speedup 'View Playlist' functionality
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
 - [Spotify API](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **Spotify API** to display Playlist images and tracklist.
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 - [Bootstrap](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **Bootstrap** for CSS Grid and Navigation functionality.
 - [Python](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **Python** to work with API and comunicate with Flask.
 - [Flask](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **Flask** to generate html and display data through themplates and Python.
 - [MongoDB](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **MongoDB** as database.
 - [Heroku](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+    - The project uses **Heroku** as to-the-user deployment method.
+- [GitHub](https://jquery.com)
+    - The project uses **Github** for backup and version control.
 
 ## Testing
 
@@ -46,24 +49,18 @@ TO BE ADDED
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
+TO BE ADDED
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- All the playlists are publicly avaiable through Spotify
+- All other writen content is my own
 
 ### Media
-- The photos used in this site were obtained from ...
+- All the playlist covers are taken through Spotify API and belong to Spotify Users to whom created the playlist or are generated from cover art by Spotify
+
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+TO BE ADDED
