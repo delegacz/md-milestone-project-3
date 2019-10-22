@@ -10,6 +10,9 @@
             </div>
             <div class="row">
             <div class="col-12 category-filters">
+                    <a
+                    href="/home"
+                    class="category-filter-btn">All</a>
                 {% for cat in categories %}
                     <a
                         href="{{url_for('display_category',category_id=cat._id)}}"

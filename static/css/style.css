@@ -1,5 +1,5 @@
 body{
-    background: rgb(224, 228, 231);
+    background: #e0e4e7;
 }
 h1 {
     font-size: 2.2rem;
@@ -84,14 +84,14 @@ a.edit-btn{
 a.spotify-play-btn {
     padding: 10px 20px;
     color: #fff;
-    background: #1db954;
+    background: #078533;
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;
     margin-bottom: 10px;
 }
 a.spotify-play-btn:hover {
-    background: #139440;
+    background: #04772D;
 }
 a.edit-btn:hover {
     background: rgb(0, 91, 177);

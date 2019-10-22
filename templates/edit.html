@@ -19,9 +19,13 @@
                 <div class="input-field col-sm-12 col-md-6">
                     <label>Select Category</label>
                     <select id="category" name="category_name">
-                        <option value="" disabled="disabled" selected="selected">Playlist Category</option>
+                        <option value="" disabled selected>Playlist Category</option>
                         {% for category in categories %}
-                            <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {%if category.category_name == playlist.category %}
+                        <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
+                        {% else %}
+                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {%endif%}
                         {% endfor %}
                     </select>
                 </div>
