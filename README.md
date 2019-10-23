@@ -85,6 +85,15 @@ The entirety of the project was tested manually and through trial and error meth
 
 Through testing opportiunity for new functionalities was found as read above in 'Functionality found in testing' section.
 
+### Mobile Respo
+Website was build as desktop-first design and was adapted to mobile screen with use of `media queries` in CSS. 
+
+Respo was tested in Google Chromes Dev Tools, Iphone X and Iphone Xr where it didn't dispay any issues.
+
+Website as also tested with a range of web browsers:
+- Desktop:  Opera, FireFox, Safari, Chrome and Edge
+- Mobile: Safari, Chrome
+
 ## Deployment
 This project was developed using [Miscrosoft Visual Studio Code](https://code.visualstudio.com/).
 Git was used for version control and backup, it was then pushed to a remote repository on [GitHub](https://www.github.com/),
@@ -103,6 +112,7 @@ Once code was functional it was deployed to [Heroku](https://www.heroku.com/)
 ## Credits
 - WCAG Rundown by [Contrast App](https://usecontrast.com/guide) 
 - WCAG Scores by [Stark Plugin](https://getstark.co/) for [Figma](https://www.figma.com/)
+- [Bootstrap Navigation snippet](https://getbootstrap.com/docs/4.3/components/navbar/)
 
 ### Content
 - All the playlists are publicly avaiable through Spotify
@@ -113,5 +123,5 @@ All the playlist covers are taken through Spotify API and belong to Spotify User
 
 
 ## Acknowledgements
-
-TO BE ADDED
+[Spotify](https://www.spotify.com) - providing platform and [API](https://developer.spotify.com/documentation/web-api/)
+[Justice](http://www.justice.church/) - my favourite band 
