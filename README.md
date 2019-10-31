@@ -91,26 +91,26 @@ Example of the testing process:
 5. Add `print()` to inspect if values returned from a function are correct and as expected
 
 Example of Tested function with the addition of `print()`:
+```
+token_response = requests.post('APILINK', data = auth_data, headers = auth_string,) 
+token_response_data = token_response.json()
+the_token = token_response_data['access_token']
 
-`token_response = requests.post('APILINK', data = auth_data, headers = auth_string,) `
-`token_response_data = token_response.json()`
-`the_token = token_response_data['access_token']`
-
-`def get_playlist_tracklist():`
-  `  tracklist_response = requests.get('https://api.spotify.com/v1/playlists/37i9dQZEVXcLogVEsiJqe7/tracks',headers={'Authorization':'Bearer '+ the_token})`
-    `print(tracklist_response)`
-    `track_list = []`
-    `count = 0`
-    `tracklist_response_data = tracklist_response.json()`
-    `maxium_of_values = len(tracklist_response_data['items'])`
-    `while count < maxium_of_values:`
-        `track_list.append(tracklist_response_data['items'][count]['track'])`
-        `count+=1`
-    `else:`
-        `track_list_artis = track_list[0]['album']['artists'][0]['name']`
-        `return track_list_artist`
-`print(get_playlist_tracklist())`
-
+def get_playlist_tracklist():
+    tracklist_response = requests.get('https://api.spotify.com/v1/playlists/37i9dQZEVXcLogVEsiJqe7/tracks',headers={'Authorization':'Bearer '+ the_token})
+    print(tracklist_response)
+    track_list = []
+    count = 0
+    tracklist_response_data = tracklist_response.json()
+    maxium_of_values = len(tracklist_response_data['items'])
+    while count < maxium_of_values:`
+        track_list.append(tracklist_response_data['items'][count]['track'])
+        count+=1
+    else:
+        track_list_artis = track_list[0]['album']['artists'][0]['name']
+        return track_list_artist
+print(get_playlist_tracklist())
+```
 Through testing opportiunity for new functionalities was found as read above in 'Functionality found in testing' section.
 
 ### Mobile Respo
