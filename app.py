@@ -142,14 +142,14 @@ def display_tracks(playlist_id):
         #checking if connection is established 
         #if not flask will display an error message to user 
         if(tracklist_response.status_code==200):
-                tracklist_response_data = tracklist_response.json()
-                maxium_of_values = len(tracklist_response_data['items'])
-                #writing data to virable
-                while count < maxium_of_values:
-                    track_list.append(tracklist_response_data['items'][count]['track'])
-                    count+=1
-                else:
-                    return track_list
+            tracklist_response_data = tracklist_response.json()
+            maxium_of_values = len(tracklist_response_data['items'])
+            #writing data to virable
+            while count < maxium_of_values:
+                track_list.append(tracklist_response_data['items'][count]['track'])
+                count+=1
+            else:
+                return track_list
         else:
             track_list = False
     return render_template('playlist_details.html', playlist=the_playlist, get_playlist_tracklist=get_playlist_tracklist, status_check=status_check)

@@ -113,6 +113,9 @@ print(get_playlist_tracklist())
 ```
 Through testing opportiunity for new functionalities was found as read above in 'Functionality found in testing' section.
 
+Additionally Python and Javascript was put through a validation: 
+- [Python](https://pythonbuddy.com/)
+- [Javascript](https://esprima.org/demo/validate.html)
 ### Mobile Respo
 Website was build as desktop-first design and was adapted to mobile screen with use of `media queries` in CSS. 
 
